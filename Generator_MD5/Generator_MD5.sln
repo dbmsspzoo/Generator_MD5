@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator_MD5", "Generator_MD5\Generator_MD5.csproj", "{E0DE4AD4-F617-4CD2-A5EE-35785E3040F3}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Generator_MD5_Setup", "Generator_MD5_Setup\Generator_MD5_Setup.vdproj", "{63A450A6-006A-4309-A715-CE6A236A5519}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0DE4AD4-F617-4CD2-A5EE-35785E3040F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0DE4AD4-F617-4CD2-A5EE-35785E3040F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0DE4AD4-F617-4CD2-A5EE-35785E3040F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0DE4AD4-F617-4CD2-A5EE-35785E3040F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63A450A6-006A-4309-A715-CE6A236A5519}.Debug|Any CPU.ActiveCfg = Debug
+		{63A450A6-006A-4309-A715-CE6A236A5519}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FABC8741-912B-4177-A679-A9D681096EFE}
+	EndGlobalSection
+EndGlobal
