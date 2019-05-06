@@ -1,5 +1,7 @@
 # Generator_MD5
 
+Lokalna aplikacja pozwalająca na generowanie sum kontrolnych w formacie MD5. 
+
 ## The second largest heading
 ###### The smallest heading
 
