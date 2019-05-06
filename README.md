@@ -2,8 +2,11 @@
 
 Lokalna aplikacja pozwalająca na generowanie sum kontrolnych w formacie MD5. 
 
-## The second largest heading
-###### The smallest heading
+## Aplikacja - wygląd
+
+## Aplikacja - Pomoc
+![Pomoc - O programie](dbmsspzoo/Generator_MD5/master/img/1.jpg)
+!
 
 **This is bold text**
 *This text is italicized*
