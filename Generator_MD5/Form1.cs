@@ -373,8 +373,9 @@ namespace Generator_MD5
 
         private void BindDataCSV(string openFilePath, string saveFilePath)
         {
+            Encoding enc = Encoding.GetEncoding("Windows-1250");
             DataTable dt = new DataTable();
-            string[] lines = System.IO.File.ReadAllLines(openFilePath);
+            string[] lines = System.IO.File.ReadAllLines(openFilePath, enc);
             if (lines.Length > 0)
             {
                 //first line to create header
