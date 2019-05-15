@@ -13,8 +13,6 @@ using System.Threading;
 
 namespace Generator_MD5
 {
-
-   
     public partial class MainWindow : Form
     {
         public static string clear_nulls(string null_value)
@@ -32,9 +30,10 @@ namespace Generator_MD5
             imie_nazwisko = imie_nazwisko.Replace("null", "");
             //imie_nazwisko = clear_nulls(imie_nazwisko.ToString());
             // oczyszczenie z polskich znakow
-            char[] polskie_znaki_org = { 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż', '-' };
-            char[] polskie_znaki_rep = { 'a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z', ' ' };
+            char[] polskie_znaki_org = { 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż' };
+            char[] polskie_znaki_rep = { 'a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z' };
             for (int i = 0; i < polskie_znaki_org.Length; i++) { imie_nazwisko = imie_nazwisko.Replace(polskie_znaki_org[i], polskie_znaki_rep[i]); }
+            imie_nazwisko = imie_nazwisko.Trim();
             return imie_nazwisko;
         }
         public static string klaruj_email(string email)
@@ -43,6 +42,7 @@ namespace Generator_MD5
             email = email.Replace("null", "");
             email = email.Replace("\'", "");
             email = email.Replace("\"", "");
+            email = email.Trim();
             return email;
         }
         public static string klaruj_regon(string regon)
@@ -59,6 +59,7 @@ namespace Generator_MD5
             regon = regon.Replace("\\", "");
             regon = regon.Replace("/", "");
             regon = regon.Replace("_", "");
+            regon = regon.Trim();
 
             StringBuilder sb = new StringBuilder();
             sb.Append(regon);
@@ -80,6 +81,7 @@ namespace Generator_MD5
             {
                 sb.Insert(0, "0");
             }
+            
             return sb.ToString();
         }
         public static string klaruj_krs(string krs)
@@ -96,6 +98,7 @@ namespace Generator_MD5
             krs = krs.Replace("\\", "");
             krs = krs.Replace("/", "");
             krs = krs.Replace("_", "");
+            krs = krs.Trim();
             return krs;
         }
         public static string klaruj_nip(string nip)
@@ -112,6 +115,7 @@ namespace Generator_MD5
             nip = nip.Replace("\\", "");
             nip = nip.Replace("/", "");
             nip = nip.Replace("_", "");
+            nip = nip.Trim();
             return nip;
         }
         public static string klaruj_pesel(string pesel)
@@ -128,6 +132,7 @@ namespace Generator_MD5
             pesel = pesel.Replace("\\", "");
             pesel = pesel.Replace("/", "");
             pesel = pesel.Replace("_", "");
+            pesel = pesel.Trim();
             return pesel;
         }
         public static string klaruj_telefon(string telefon)
@@ -144,9 +149,10 @@ namespace Generator_MD5
             telefon = telefon.Replace("\\", "");
             telefon = telefon.Replace("/", "");
             telefon = telefon.Replace("_", "");
+            
             if (telefon.Length == 11) { telefon = telefon.Substring(2, 9); }
             else if (telefon.Length == 10) { telefon = telefon.Substring(1, 9); }
-
+            telefon = telefon.Trim();
             return telefon;
         }
         public static string klaruj_numer(string numer)
@@ -159,6 +165,7 @@ namespace Generator_MD5
             numer = numer.Replace(" ", "");
             char[] znaki_do_strimmowania = { '*', ' ' };
             numer = numer.Trim(znaki_do_strimmowania);
+            numer = numer.Trim();
             return numer;
         }
         public static string klaruj_miasta(string miasto)
@@ -167,14 +174,14 @@ namespace Generator_MD5
             miasto = miasto.Replace("null", "");
             miasto = miasto.ToLower();
             // oczyszczenie z polskich znakow
-            char[] polskie_znaki_org = { 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż', '-' };
-            char[] polskie_znaki_rep = { 'a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z', ' ' };
+            char[] polskie_znaki_org = { 'ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż' };
+            char[] polskie_znaki_rep = { 'a', 'c', 'e', 'l', 'n', 'o', 's', 'z', 'z' };
             for (int i = 0; i < polskie_znaki_org.Length; i++) { miasto = miasto.Replace(polskie_znaki_org[i], polskie_znaki_rep[i]); }
             // generalne oczyszczenie ulic z zapisów, które mogą być poczynione w różny sposób:
             string[] znaki_org = { "\"", "'" };
             string[] znaki_rep = { "", "" };
             for (int i = 0; i < znaki_org.Length; i++) { miasto = miasto.Replace(znaki_org[i], znaki_rep[i]); }
-
+            miasto = miasto.Trim();
             return miasto;
         }
         public static string klaruj_kody(string kod)
@@ -189,6 +196,7 @@ namespace Generator_MD5
             {
                 kod = kod.Substring(0, 2) + "-" + kod.Substring(2, 3);
             }
+            kod = kod.Trim();
             return kod;
         }
         public static string klaruj_ulice(string ulica)
@@ -281,6 +289,7 @@ namespace Generator_MD5
 
 
             ulica = ulica.Trim(znaki_do_strimmowania);
+            ulica = ulica.Trim();
             return ulica;
         }
         public static string get_md5(string in_data)
@@ -297,7 +306,7 @@ namespace Generator_MD5
                 return out_data.ToString();
             }
         }
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -373,9 +382,9 @@ namespace Generator_MD5
 
         private void BindDataCSV(string openFilePath, string saveFilePath)
         {
-            Encoding enc = Encoding.GetEncoding("Windows-1250");
             DataTable dt = new DataTable();
-            string[] lines = System.IO.File.ReadAllLines(openFilePath, enc);
+            string[] lines = System.IO.File.ReadAllLines(openFilePath);
+
             if (lines.Length > 0)
             {
                 //first line to create header
@@ -412,7 +421,7 @@ namespace Generator_MD5
                         }
                         else if (headerWord.ToUpper().Equals("NAZWISKO"))
                         {
-
+                            
                             dr[headerWord] = get_md5(klaruj_imie_nazwisko_firma(dataWords[columnIndex++]));
                             if (dr[headerWord].Equals("D41D8CD98F00B204E9800998ECF8427E")) dr[headerWord] = "";
                             //dr[headerWord] = (clear_nulls(dataWords[columnIndex++]).Equals("") ? "EMPTY" : get_md5(klaruj_imie_nazwisko_firma(dataWords[columnIndex++])));
@@ -541,32 +550,47 @@ namespace Generator_MD5
         {
             wybierzPlikButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); // transparent
             wybierzPlikButton.FlatAppearance.BorderSize = 0;
+            wybierzLokalizacjeButton.Visible = false;
+            saveStatusLabel.Visible = false;
+            wygenerujPlikButton.Visible = false;
+            statusLabel.Visible = false;
+
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "C:\\Users\\a.beczkowski\\source\\repos\\daneTestowe";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
                 openFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
+                openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    assistantLabel.Text = openFileDialog.FileName;
-                    openStatusLabel.Visible = true;
-                    if ((Path.GetFileName(openFileDialog.FileName)).Length > 15)
+                    if (!Path.GetExtension(openFileDialog.FileName).Equals(".csv"))
                     {
-                        string shortOpenFileName = (Path.GetFileName(openFileDialog.FileName)).Substring(0, 15) + "...";
-                        openStatusLabel.Text = shortOpenFileName;
+                        MessageBox.Show("Wybrano plik z błędnym rozszerzeniem!\n\nWybierz plik z rozszerzeniem .csv");
                     }
                     else
                     {
-                        openStatusLabel.Text = Path.GetFileName(openFileDialog.FileName);
+                        assistantLabel.Text = openFileDialog.FileName;
+                        openStatusLabel.Visible = true;
+                        if ((Path.GetFileName(openFileDialog.FileName)).Length > 15)
+                        {
+                            string shortOpenFileName = (Path.GetFileName(openFileDialog.FileName)).Substring(0, 15) + "...";
+                            openStatusLabel.Text = shortOpenFileName;
+                        }
+                        else
+                        {
+                            openStatusLabel.Text = Path.GetFileName(openFileDialog.FileName);
+                        }
+
+                        wybierzLokalizacjeButton.Visible = true;
+                        if (wybierzLokalizacjeButton.Visible == true)
+                        {
+                            saveStatusLabel.Text = "Nie wybrano pliku wynikowego";
+                            saveStatusLabel.Visible = true;
+                        }
                     }
                     
-                    wybierzLokalizacjeButton.Visible = true;
-                    if (wybierzLokalizacjeButton.Visible == true)
-                    {
-                        saveStatusLabel.Visible = true;
-                    }
                 }
             }
         }
@@ -576,8 +600,8 @@ namespace Generator_MD5
             wybierzLokalizacjeButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255); // transparent
             wybierzLokalizacjeButton.FlatAppearance.BorderSize = 0;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
-            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.Filter = "csv files (*.csv)|*.csv";
+            saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).ToString();
             saveFileDialog1.RestoreDirectory = true;
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
