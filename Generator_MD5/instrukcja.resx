@@ -119,12 +119,12 @@
   </resheader>
   <data name="instrukcjaText1.Text" xml:space="preserve">
     <value>Kliknięcie przycisku                           spowoduje wyświetlenie okienka, w którym należy wskazać
-wielokolumnowy plik csv z kodowaniem UTF-8, który ma zostać zaszyfrowany w formacie MD5. 
-Informacja o lokalizacji pliku zostanie wyświetlona w okienku nad przyciskiem. 
+wielokolumnowy plik csv (rozdzielany średnikami) z kodowaniem UTF-8, który ma zostać zaszyfrowany 
+w formacie MD5. Informacja o lokalizacji pliku zostanie wyświetlona w okienku nad przyciskiem. 
 
 Dane szyfrowane są po wykryciu następujących nagłówków kolumn: 
-IMIE, NAZWISKO, NAZWA_FIRMY, ULICA, NR_ULICY, NR_LOKALU, KOD, MIASTO, PESEL, 
-NIP, REGON, KRS, TELEFON, EMAIL. 
+IMIE, NAZWISKO, NAZWA_FIRMY, ULICA, NR_ULICY, NR_LOKALU, KOD, MIASTO, PESEL, NIP, REGON, 
+KRS, TELEFON, EMAIL. 
 W przypadku użycia innych nazw nagłówków dane nie zostaną zanonimizowane.
 </value>
   </data>
