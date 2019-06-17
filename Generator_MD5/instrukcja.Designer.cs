@@ -82,7 +82,7 @@
             this.instrukcjaText1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.instrukcjaText1.Location = new System.Drawing.Point(45, 70);
             this.instrukcjaText1.Name = "instrukcjaText1";
-            this.instrukcjaText1.Size = new System.Drawing.Size(478, 112);
+            this.instrukcjaText1.Size = new System.Drawing.Size(514, 112);
             this.instrukcjaText1.TabIndex = 4;
             this.instrukcjaText1.Text = resources.GetString("instrukcjaText1.Text");
             // 
