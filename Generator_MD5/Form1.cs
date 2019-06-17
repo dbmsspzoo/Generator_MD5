@@ -531,7 +531,7 @@ namespace Generator_MD5
                 for (int i = 0; i < dt.Columns.Count; i++)
                 {
                     result.Append(dt.Columns[i].ColumnName);
-                    result.Append(i == dt.Columns.Count - 1 ? "\n" : ",");
+                    result.Append(i == dt.Columns.Count - 1 ? "\n" : ";");
                 }
 
                 foreach (DataRow row in dt.Rows)
@@ -539,7 +539,7 @@ namespace Generator_MD5
                     for (int i = 0; i < dt.Columns.Count; i++)
                     {
                         result.Append(row[i].ToString());
-                        result.Append(i == dt.Columns.Count - 1 ? "\n" : ",");
+                        result.Append(i == dt.Columns.Count - 1 ? "\n" : ";");
                     }
                 }
                 File.WriteAllText(saveFilePath, result.ToString());
